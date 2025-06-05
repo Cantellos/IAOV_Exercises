@@ -1,0 +1,1 @@
+:- task(ID,EST,LCT,D), tempo(S), S > EST, S + D < LCT 
