@@ -4,7 +4,6 @@
 :-lib(fd_global).
 
 
-
 stampa(TaskList):-
     generate_variables(TaskList),
     generate_list_cumulative(TaskList,ListS,ListD,ListR),
@@ -14,12 +13,6 @@ stampa(TaskList):-
     minlist(DistanceList,Min),
     C #= -Min,
     minimize(labeling(ListS),C).
-
-
-
-
-
-
 
 
 distance_list([],_,[]).
@@ -35,13 +28,6 @@ distance(task(IDi,_,_,Di,Starti),[task(IDj,_,_,_,Startj)|Ts],[D|Ld]):-
     D #= abs(A),
     distance(task(IDi,_,_,Di,Starti),Ts,Ld).
 
-
-
-
-generate_list_cumulative([],[],[],[]):-!.
-generate_list_cumulative([task(ID,EST,LCT,D,Start)|Ls],[Start|Ss],[D|Ds],[1|Rs]):-
-    generate_list_cumulative(Ls,Ss,Ds,Rs).
-
 generate_variables(TaskList):-
     findall(task(ID,EST,LCT,D),task(ID,EST,LCT,D),Data),
     make_task_variables(Data,TaskList).
@@ -51,3 +37,7 @@ make_task_variables([task(ID,EST,LCT,D)|Ds],[task(ID,EST,LCT,D,Start)|Ls]):-
     Start #>= EST,
     Start + D #<= LCT,
     make_task_variables(Ds,Ls).
+
+generate_list_cumulative([],[],[],[]):-!.
+generate_list_cumulative([task(ID,EST,LCT,D,Start)|Ls],[Start|Ss],[D|Ds],[1|Rs]):-
+    generate_list_cumulative(Ls,Ss,Ds,Rs).
