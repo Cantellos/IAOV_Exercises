@@ -1,6 +1,0 @@
-distance(_,[],[]).
-distance(task(ID1,_,_,Dur1,Start1), [task(ID2,_,_,Dur2,Start2)|Ttask], [Min|Tmin]):-
-    (ID1 \= ID2
-        -> !, End1 #= Start1 + Dur1, D #= End1 - Start2, Min #= abs(D)
-    ),
-    distance(task(ID1,_,_,Dur1,Start1), Ttask, Tmin).

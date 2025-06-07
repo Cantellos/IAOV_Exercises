@@ -32,13 +32,13 @@ generate_variables(TaskList):-
     findall(task(ID,EST,LCT,D),task(ID,EST,LCT,D),Data),
     make_task_variables(Data,TaskList).
 
-make_task_variables([],[]):-!.
+make_task_variables([],[]).
 make_task_variables([task(ID,EST,LCT,D)|Ds],[task(ID,EST,LCT,D,Start)|Ls]):-
     Start #>= EST,
     Start + D #<= LCT,
     make_task_variables(Ds,Ls).
 
-generate_list_cumulative([],[],[],[]):-!.
+generate_list_cumulative([],[],[],[]).
 generate_list_cumulative([task(ID,EST,LCT,D,Start)|Ls],[Start|Ss],[D|Ds],[1|Rs]):-
     generate_list_cumulative(Ls,Ss,Ds,Rs).
 
