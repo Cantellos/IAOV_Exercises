@@ -1,7 +1,5 @@
 1{schedule(ID,EST,LCT,D,S):tempo(S)}1:- task(ID,EST,LCT,D).
 
-
-
 :- schedule(ID,EST,LCT,D,S), S < EST.
 :- schedule(ID,EST,LCT,D,S), S + D > LCT.
 :- schedule(ID1,_,_,_,S), schedule(ID2,_,_,_,S), ID1 != ID2.

@@ -31,11 +31,6 @@ distance(StartI,DI,[task(_,_,_,D,Start)|Ts],[C|Cs]):-
     distance(StartI,DI,Ts,Cs).
 
 
-
-
-
-
-
 extract_list_cumulative([],[],[],[]).
 extract_list_cumulative([task(_,_,_,D,Start)|Ts],[Start|ListS],[D|ListD],[1|ListR]):-
     extract_list_cumulative(Ts,ListS,ListD,ListR).

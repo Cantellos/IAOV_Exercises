@@ -4,7 +4,7 @@
 :- lib(fd_global).
 
 
-apt(L,Op):-
+pip(L,Op):-
     read_data(ListInstall,ListRequires,ListConflict,ListInstalled,NPackage),
     length(L,NPackage),
     L :: [0,1],
