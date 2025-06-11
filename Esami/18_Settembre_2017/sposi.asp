@@ -1,17 +1,16 @@
-invitati(1..NI) :- num_invitati(NI).
-tavoli(1..NT) :- num_tavoli(NT).
+invitati(1..NI):- num_invitati(NI).
+tavoli(1..NT):- num_tavoli(NT).
 
-1{seduto(ID,T):tavoli(T)}1:- invitati(ID).
+1{seduto(P,T):tavoli(T)}1:- invitati(P).
 
-pieno(T) :- tavoli(T), capacita(C), #count{1,ID : seduto(ID,T)} > C.
-:- pieno(T).
+:- {seduto(_,T)} > C, tavolo(T), capacita(C).
 
-:- conflitto(ID1,ID2), seduto(ID1,T), seduto(ID2,T).
+:- conflitto(X,Y), seduto(X,T), seduto(Y,T).
 
+costo(X,Y):- conosce(X,Y), seduto(X,T), seduto(Y,T).
 
-obiettivo(ID1,ID2) :- conosce(ID1,ID2), seduto(ID1,T), seduto(ID2,T).
-
-#maximize{1,ID1,ID2 : obiettivo(ID1,ID2)}.
+#maximize{1,X,Y:costo(X,Y)}.
 
 
 #show seduto/2.
+#show costo_tot/1.

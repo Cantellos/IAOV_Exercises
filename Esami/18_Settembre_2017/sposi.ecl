@@ -17,7 +17,7 @@ sposi(L,C):-
     impose_conflitti(L, Conflitti),
 
     capacita(Capacità),
-    impose_capacità(L, Capacità),
+    impose_capacita(1, NT, L, Capacità),
 
     objective(L, Amici, Cost),
     C #= - Cost,
@@ -33,11 +33,17 @@ objective(L, [(X,Y)|ListA], Cost):-
     P1 #= P2 #<=> B,
     Cost #= Cost1 + B,
     objective(L, ListA, Cost1).
-    
-impose_capacità(L,C,):-
-    occurences(L,N) #< 6.
-    occurences(L,N) #< 6.
-    occurences(L,N) #< 6.
+
+
+impose_capacita(NT, NT, L, C):- !,
+    occurrences(Curr,L,X),
+    X #<= 6.
+impose_capacita(Curr, NT, L, C):-
+    occurrences(Curr,L,X),
+    X #<= 6,
+    Next is Curr + 1,
+    impose_capacita(Next, NT, L, C).
+
 
 impose_conflitti(_,[]).
 impose_conflitti(L,[(X,Y)|ListC]):-
