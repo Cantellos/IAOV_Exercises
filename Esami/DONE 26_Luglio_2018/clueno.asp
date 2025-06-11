@@ -14,7 +14,7 @@ contW(Cw):- Cw = #count{X:weap_card(X,0)}.
 %:- {ass_card(_,0)} != 1.
 %:- {weap_card(_,0)} != 1.
 
-% VERSIONE DOM (crea più modelli)
+% VERSIONE DOM (ssenza count, crea più modelli)
 %:- ass_card(A1,0), ass_card(A2,0), A1 != A2.
 %:- weap_card(W1,0), weap_card(W2,0), W1 != W2.
 
