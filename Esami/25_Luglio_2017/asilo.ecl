@@ -36,10 +36,12 @@ costo_asilo([0|_], 100):- !.
 costo_asilo([_|T], Cost):-
     costo_asilo(T, Cost).
 
+
 objective(L, Cost):-
     costo_asilo(L, CostA),
     occurrences(3, L, CostB),
     Cost #= CostA + CostB*50.
+
 
 impose_asilo(_,[],_,_).
 impose_asilo(Day, [H|T], Start, End):-

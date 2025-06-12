@@ -14,7 +14,7 @@ values(0..3).
 
 presenza_asilo():- giorno(D,0).
 
-costoB(C) :- N= #count{D:giorno(D,3)}, C = 50*N.
+costoB(C) :- N = #count{D:giorno(D,3)}, C = 50*N.
 
 costo_tot(C):- costoB(C), not presenza_asilo.
 costo_tot(Ct):- costoB(C), presenza_asilo, Ct = 100 + C.

@@ -5,6 +5,7 @@
 :-lib(cumulative).
 
 stampante(Scheduling, Distanze):-
+
     findall([ID, EST, LCT, D], task(ID, EST, LCT, D), Task),
     add_start_time(Task, Scheduling),
 

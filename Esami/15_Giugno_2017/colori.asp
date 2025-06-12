@@ -1,4 +1,3 @@
-colori(Col):- car(_,Col).
 number(N):- car(N,_).
 
 1{seq(Pos,Col,Old) : number(Pos)}1 :- car(Old,Col).

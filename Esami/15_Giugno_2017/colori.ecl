@@ -22,12 +22,12 @@ colori(L, Obj, C):-
 
     minimize(labeling(L), Obj), 
 
-    results(L,Colors,C).
+    show_results(L,Colors,C).
 
-results([],_,[]).
-results([P1|ListP],Colors,[C|ListC]):-
+show_results([],_,[]).
+show_results([P1|ListP],Colors,[C|ListC]):-
     nth1(P1,Colors,C),
-    results(ListP,Colors,ListC).
+    show_results(ListP,Colors,ListC).
 
 
 objective([],[],0).

@@ -23,11 +23,11 @@ cante(Ass,Weap):-
     %sarebbe più corretto appendere la lista di tutti i vincoli reificati prima di fare il labeling
     labeling(List).
 
+
 impose_vincoli([],_,_).
 impose_vincoli([Risp|ListRisp], Ass, Weap):-
     deduzione(Risp, Ass, Weap),
     impose_vincoli(ListRisp, Ass, Weap).
-
 
 deduzione((Domanda,0,A,W), ListAss, ListWeap):- !,
     nth1(A, ListAss, Ass),
@@ -38,7 +38,6 @@ deduzione((Domanda,0,A,W), ListAss, ListWeap):- !,
     Weap #= Domanda #<=> B3,
     Weap #= 0 #<=> B4,
     B3 + B4 #= 1.
-
 deduzione((_,Risposta,A,W), ListAss, ListWeap):-
     nth1(A, ListAss, Ass),
     nth1(W, ListWeap, Weap),
