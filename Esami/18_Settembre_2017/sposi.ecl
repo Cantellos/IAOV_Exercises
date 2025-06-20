@@ -23,7 +23,7 @@ sposi(L,C):-
     C #= - Cost,
     append(L,[C],Vars),
 
-    min_max(labeling(Vars),C).
+    minimize(labeling(Vars),C).
 
 
 objective(_,[],0).
