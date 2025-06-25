@@ -16,9 +16,9 @@ asilo(L, Asilo):-
     StartAsilo #< EndAsilo,
     EndAsilo - StartAsilo #<= 6,
 
-    impose_asilo(1, L, StartAsilo, EndAsilo),
-
     impose_impegni(L, Impegni),
+
+    impose_asilo(1, L, StartAsilo, EndAsilo),
     
     occurrences(1, L, P),
     occurrences(2, L, M),
@@ -35,7 +35,6 @@ costo_asilo([], 0).
 costo_asilo([0|_], 100):- !.
 costo_asilo([_|T], Cost):-
     costo_asilo(T, Cost).
-
 
 objective(L, Cost):-
     costo_asilo(L, CostA),

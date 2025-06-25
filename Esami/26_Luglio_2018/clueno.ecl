@@ -13,13 +13,16 @@ cante(Ass,Weap):-
     findall((Richiedente,Rispondente,Assassino,Arma),risposta(Richiedente,Rispondente,Assassino,Arma), Risposte),
 
     impose_vincoli(Risposte, Ass, Weap),
+
     occurrences(0, Ass, 1),
     occurrences(0, Weap, 1),
+
     append(Ass,Weap,List),
+    
     %occurrences(1,List,N1),
-    % ...
     %N1 #>= 2 #/\ N1 #<= 3,
     % ...
+
     %sarebbe più corretto appendere la lista di tutti i vincoli reificati prima di fare il labeling
     labeling(List).
 

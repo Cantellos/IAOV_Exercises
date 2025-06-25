@@ -1,6 +1,6 @@
 {result(X):package(X)}:- package(X).
 
-result(X):- install(X).
+:- install(X), not result(X).
 
 :- requires(X,Y), result(X), not result(Y).
 :- conflict(X,Y), result(X), result(Y).

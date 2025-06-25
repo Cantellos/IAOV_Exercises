@@ -24,6 +24,7 @@ colori(L, Obj, C):-
 
     show_results(L,Colors,C).
 
+
 show_results([],_,[]).
 show_results([P1|ListP],Colors,[C|ListC]):-
     nth1(P1,Colors,C),

@@ -28,7 +28,7 @@ prod(L,C):-
     min_max(labeling(L),C).
 
 
-objective(_,[],0).
+objective(_, [], 0).
 objective(L, [(ID,Scadenza)|ListOrd], Costo):-
     nth1(ID, L, X),
     X + 1 #<= Scadenza #<=> B,

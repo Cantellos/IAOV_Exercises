@@ -44,9 +44,8 @@ vincoli_requires(_,[]).
 vincoli_requires(L, [(X,Y)|ListR]):-
     nth1(X, L, V1), 
     nth1(Y, L, V2),
-    V1 #\= 1 #<=> B1,
-    V2 #= 1 #<=> B2,
-    B1 + B2 #>= 1,
+    V1 #= 1 #<=> B1,
+    V2 #= 1 #<=> B1,
     vincoli_requires(L, ListR).
 
 

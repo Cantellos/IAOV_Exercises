@@ -17,9 +17,9 @@ prezzo(1..4).
 
 1{combo(M, I, E, P): interno(I), colore(E), prezzo(P)}1 :- auto(M).
 
-:- combo(M1, I1, _, _), combo(M2, I2, _, _), M1 != M2, I1 = I2.
-:- combo(M1, _, E1, _), combo(M2, _, E2, _), M1 != M2, E1 = E2.
-:- combo(M1, _, _, P1), combo(M2, _, _, P2), M1 != M2, P1 = P2.
+:- combo(M1, I, _, _), combo(M2, I, _, _), M1 != M2.
+:- combo(M1, _, E, _), combo(M2, _, E, _), M1 != M2.
+:- combo(M1, _, _, P), combo(M2, _, _, P), M1 != M2.
 
 sbagliato(1,1) :- combo(M, I, _, _), M = lamborghini, I != marrone.
 sbagliato(1,2) :- combo(M, _, E, _), M = lamborghini, E != giallo.

@@ -10,11 +10,9 @@ stampante(Scheduling, Distanze):-
     add_start_time(Task, Scheduling),
 
     impose_EST(Scheduling),
-
     impose_LCT(Scheduling),
 
     liste_cumulative(Scheduling, Starts, Durate, Risorse),
-
     cumulative(Starts, Durate, Risorse, 1),
 
     calculate_distance(Scheduling, Dist),
@@ -22,10 +20,9 @@ stampante(Scheduling, Distanze):-
     flatten(Dist, Distanze),
 
     minlist(Distanze, Min),
-
     C #= -Min,
-
     append(Starts, Distanze, L),
+    
     min_max(labeling(L), C).
 
 add_start_time([],[]).

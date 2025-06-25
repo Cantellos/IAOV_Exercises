@@ -1,3 +1,4 @@
+
 invitati(1..NI):- num_invitati(NI).
 tavoli(1..NT):- num_tavoli(NT).
 
